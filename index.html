@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Valentine!</title>
+    <style>
+      /* Gaya umum */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Judul */
+      h1 {
+        font-size: 2.8em;
+        font-weight: bold;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 2s ease-in-out;
+      }
+      .hidden {
+        display: none !important;
+      }
+
+      /* Kotak pesan */
+      .message {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(5px);
+        animation: popIn 1s ease-out;
+      }
+
+      .message p {
+        font-size: 1.2em;
+        margin: 8px 0;
+      }
+
+      .message #anjai {
+        font-family: cursive;
+      }
+
+      /* Tombol */
+      .btn {
+        background: #ff4b5c;
+        border: none;
+        padding: 12px 30px;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: transform 0.3s, background 0.3s;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        display: block;
+      }
+
+      .btn:hover {
+        background: #ff1f3a;
+        transform: scale(1.1);
+      }
+
+      /* Galeri Gambar */
+      .image-container {
+        display: flex;
+        gap: 15px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 90%;
+        max-width: 600px;
+        padding: 10px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        scrollbar-width: none;
+      }
+      .image-container::-webkit-scrollbar {
+        display: none;
+      }
+      .image-container img {
+        border-radius: 10px;
+        width: 200px;
+      }
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 5s infinite ease-in-out;
+      }
+
+      .watermark {
+        position: fixed;
+        font-family: Lucida;
+        bottom: 10px;
+        left: 10px;
+        font-size: 30px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: bold;
+        pointer-events: none;
+      }
+      @media screen and (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        .message {
+          width: 100%;
+        }
+
+        .btn {
+          font-size: 0.9em;
+          padding: 8px 18px;
+        }
+
+        .image-container img {
+          width: 120px;
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💖 Selamat Hari Valentine! 💖</h1>
+    <div class="message">
+      <p>Halooow Maurin dan Dipa,</p>
+      <p>kmi cuma mau bilang...</p>
+      <p>Maaf terlambat, Selamat hari Valentine</p>
+      <p id="anjai"><b>anjaaii!</b> 😍</p>
+      <p>Semoga hari selanjutnya penuh dengan kebahagiaan dan cinta! 💕</p>
+    </div>
+
+    <button class="btn" onclick="showHearts()">Klik untuk kejutan! 💝</button>
+
+    <button class="btn" onclick="togglePhotos()">Lihat Foto 📸</button>
+    <br />
+    <div id="photoGallery" class="image-container hidden">
+      <img src="1.jpg" alt="Foto 1" />
+      <img src="2.jpg" alt="Foto 2" />
+      <img src="3.jpg" alt="Foto 3" />
+      <img src="4.jpg" alt="Foto 4" />
+      <img src="5.jpg" alt="Foto 5" />
+      <img src="6.jpg" alt="Foto 6" />
+    </div>
+    <audio
+      id="bgMusic"
+      src="wwd.mp3juice.blog - adrianne lenker - not a lot, just forever (official audio).mp3"
+      hidden
+      loop
+    ></audio>
+
+    <script>
+      function createHeart() {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+      function playAudio() {
+        let audio = document.getElementById("bgMusic");
+        audio.play();
+      }
+
+      function showHearts() {
+        playAudio();
+        for (let i = 0; i < 30; i++) {
+          setTimeout(createHeart, i * 100);
+        }
+      }
+      function startAutoScroll() {
+        let gallery = document.getElementById("photoGallery");
+        let scrollSpeed = 1;
+        let direction = 1;
+
+        function autoScrollGallery() {
+          if (gallery.classList.contains("hidden")) return;
+
+          gallery.scrollLeft += scrollSpeed * direction;
+
+          if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
+            direction = -1;
+          }
+          if (gallery.scrollLeft <= 0) {
+            direction = 1;
+          }
+
+          requestAnimationFrame(autoScrollGallery);
+        }
+
+        autoScrollGallery();
+      }
+
+      function togglePhotos() {
+        let photoGallery = document.getElementById("photoGallery");
+        let button = document.querySelector("button[onclick='togglePhotos()']");
+
+        if (photoGallery.classList.contains("hidden")) {
+          photoGallery.classList.remove("hidden");
+          button.innerText = "Sembunyikan Foto 📸";
+          startAutoScroll();
+        } else {
+          photoGallery.classList.add("hidden");
+          button.innerText = "Lihat Foto 📸";
+        }
+      }
+    </script>
+    <div class="watermark">Wizz</div>
+  </body>
+</html>
